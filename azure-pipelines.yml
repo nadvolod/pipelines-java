@@ -12,14 +12,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- name: SAUCE_USERNAME
+- name: sauce_user
   value: $(SAUCE_USERNAME)
-- name: SAUCE_ACCESS_KEY
+- name: sauce_key
   value: $(SAUCE_ACCESS_KEY) 
 
 steps:
-- bash: echo $(SAUCE_USERNAME)
-- bash: echo $(SAUCE_ACCESS_KEY)
+- bash: echo $SAUCE_USER
+- bash: echo $SAUCE_KEY
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
