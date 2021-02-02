@@ -9,7 +9,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- name: sauce_user
+  value: $(SAUCE_USERNAME)
+- name: sauce_key
+  value: $(SAUCE_ACCESS_KEY)
+
 steps:
+- bash: echo $SAUCE_USER
+- bash: echo $SAUCE_KEY
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
